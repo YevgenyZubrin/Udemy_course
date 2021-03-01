@@ -16,13 +16,20 @@
 // let und;
 // console.log(und);
 
-// let obj = {
-//     name: 'Alex',
-//     age: 28,
-//     isMarried: true
-// };
+let obj = {
+    name: 'Alex',
+    age: 28,
+    isMarried: true
+};
 
-// console.log(obj["isMarried"]);
+const a = 'hairColor',
+      b = 'red';
+
+obj[a] = b;
+
+console.log(obj);
+
+// console.log(obj[isMarried]);
 
 // let arr = [1, 5, 10, 'three', true, {}, []];
 // console.log(arr[3]);
