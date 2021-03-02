@@ -1,108 +1,44 @@
 "use strict";
 
+let num = 20;
 
-const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+function showFirstMessage(text) {
+    console.log(text);
 
-// while (numberOfFilms == 0) {
-//     numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
-//         }
-
-console.log(numberOfFilms);
-
-
-
-const personalMovieDB = {
-    count: numberOfFilms,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false
-};
-
-if ((personalMovieDB["count"] <= 10) && (personalMovieDB["count"] >= 0)) {
-    alert('Просмотрено довольно мало фильмов.');
-} else if ((personalMovieDB["count"] > 10) && (personalMovieDB["count"] <= 30)) {
-    alert("Вы классический зритель.");
-} else if (personalMovieDB["count"] > 30) {
-    alert("Вы киноман.");
-} else {
-    alert("Произошла ошибка.");
+    let num = 50;
 }
 
-let a,
-    b,
-    i = 0;
+showFirstMessage('hello!!!!');
+console.log(num);
 
-//while
 
-while (i < 2) {
-    a = prompt("Один из последних просмотренных фильмов?", "");
-        while (a == '' || a == null || a.length > 50 ) {
-            a = prompt("Один из последних просмотренных фильмов?", "");
-        }
-
-    b = +prompt("На сколько оцените его?", "");
-        while (b == 0) {
-            b = +prompt("На сколько оцените его?", "");
-        }
-
-    personalMovieDB.movies[a] = b;
-    
-    i++;
-} 
-
-//do while
-
-// do {
-//     a = prompt("Один из последних просмотренных фильмов?", "");
-//         while (a == '' || a == null || a.length > 50 ) {
-//             a = prompt("Один из последних просмотренных фильмов?", "");
-//         }
-
-//     b = +prompt("На сколько оцените его?", "");
-//         while (b == 0) {
-//             b = +prompt("На сколько оцените его?", "");
-//         }
-
-//     personalMovieDB.movies[a] = b;
-    
-//     i++;
-// } while (i < 2);
-
-//for
-
-// for (let i = 0; i < 2; i++) {
-//     a = prompt("Один из последних просмотренных фильмов?", "");
-//         while (a == '' || a == null || a.length > 50 ) {
-//             a = prompt("Один из последних просмотренных фильмов?", "");
-//         }
-
-//     b = +prompt("На сколько оцените его?", "");
-//         while (b == 0) {
-//             b = +prompt("На сколько оцените его?", "");
-//         }
-
-//     personalMovieDB.movies[a] = b;
+// function calc(a, b) {
+//     return (a + b);
 // }
 
-// const a = prompt("Один из последних просмотренных фильмов?", ""),
-//       b = +prompt("На сколько оцените его?", ""),
-//       c = prompt("Один из последних просмотренных фильмов?", ""),
-//       d = +prompt("На сколько оцените его?", "");
+// console.log(calc(4, 8));
+// console.log(calc(1, 3));
+// console.log(calc(5, 2));
 
-//       personalMovieDB.movies[a] = b;
-//       personalMovieDB.movies[c] = d;
+function ret() {
+    let num = 50;
+    return num;
+}
 
-//       console.log(personalMovieDB);
+const anotherNum = ret();
 
-      // let a,
-//     b;
+console.log(anotherNum);
 
-// for (let i = 0; i < 2; i++) {
-//     a = prompt("Один из последних просмотренных фильмов?", "");
-//     b = +prompt("На сколько оцените его?", "");
 
-//     personalMovieDB.movies[a] = b;
-// }
+const logger = function() {
+    console.log('hello');
+};
 
-//       console.log(personalMovieDB);
+logger();
+
+
+const calc = (a, b) => { return a + b };
+    
+    console.log(calc(4, 8));
+    console.log(calc(1, 3));
+    console.log(calc(5, 2));
