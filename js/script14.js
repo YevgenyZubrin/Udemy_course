@@ -75,8 +75,50 @@ function copy(mainObj) {
 
 
 
-const oldArr = ['a', 'b', 'c'];
-const newArr = oldArr.slice();
-newArr[1] = 'sdafds';
-console.log(oldArr);
+// const oldArr = ['a', 'b', 'c'];
+// const newArr = oldArr.slice();
+// newArr[1] = 'sdafds';
+// console.log(oldArr);
+// console.log(newArr);
+
+
+const video = ['youtube', 'rutube', 'vimeo'],
+      blogs = ['wordpress', 'livejournal', 'bloggers'],
+      internet = [...video, ...blogs, 'vk', 'facebook'];
+
+      console.log(internet);
+
+function log(a, b, c) {
+    console.log(a);
+    console.log(b);
+    console.log(c);
+}
+
+const num = [2, 5, 7];
+log(...num);
+
+
+const arr = ['a', 'b'];
+
+const newArr = [...arr];
+
+newArr[0] = 'q';
+
 console.log(newArr);
+console.log(arr);
+
+const q = {
+    one: 1,
+    two: 2,
+    three: {
+        four: 4,
+        five: 5,
+    },
+};
+
+const newObj = {...q};
+
+newObj.three.four = 8;
+
+console.log(newObj);
+console.log(q);
