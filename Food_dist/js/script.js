@@ -6,7 +6,10 @@ const tabs = document.querySelectorAll('.tabheader__item'),
 
 const hideTabsContent = function(content, tabBtn) {
     content.forEach(item => {
-        item.style.display = "none";
+        if (!item.classList.contains('hide')) {
+            item.classList.add('hide');
+        }
+        // item.style.display = "none";
     });
 
     tabBtn.forEach((item) => {
@@ -17,67 +20,30 @@ const hideTabsContent = function(content, tabBtn) {
 };
 
 const showTabsContent = function(content, tabBtn, i = 0) {
-    content[i].style.display = 'block';
+    // content[i].style.display = 'block';
+    if (content[i].classList.contains('hide')) {
+        content[i].classList.remove('hide');
+    }
     tabBtn[i].classList.add('tabheader__item_active');
 };
 
-tabsParent.addEventListener('click', (event) => {
-    if (event.target.matches('div.tabheader__item')) {
-        hideTabsContent(tabsContent, tabs);
-        event.target.classList.add('tabheader__item_active');
-    }
-    tabs.forEach((item, i) => {
-        if (item.classList.contains('tabheader__item_active')) {
-            tabsContent[i].style.display = 'block';
+const changeTabsContent = function(tabBtn, tabWrapper) {
+
+tabWrapper.addEventListener('click', (event) => {
+    const target = event.target;
+
+    tabBtn.forEach((item, i) => {
+        if (target == item) {
+            hideTabsContent(tabsContent, tabs);
+            showTabsContent(tabsContent, tabs, i);
         }
+
     });
 });
+};
 
-// const changeTabsContent = function(wrapper, content, tabBtn) {
-//         wrapper.addEventListener('click', (event) => {
-//             if (event.target.matches('div.tabheader__item')) {
-//                 hideTabsContent(tabsContent, tabs);
-//                 event.target.classList.add('tabheader__item_active');
-//             }
-//             tabBtn.forEach((item, i) => {
-//                 if (item.classList.contains('tabheader__item_active')) {
-//                     content[i].style.display = 'block';
-//                 }
-//             });
-//         });
-//     };
 
 hideTabsContent(tabsContent, tabs);
 showTabsContent(tabsContent, tabs);
-// changeTabsContent(tabsParent, tabsContent, tabs);
-
-
-
-
-// const changeTabsContent = function(content, tabBtn, wrapper) {
-//     wrapper.addEventListener('click', (event) => {
-//         if (!event.target.matches('.tabheader__item_active')) {
-//             event.target.classList.add('.tabheader__item_active');
-//             content[]
-//         }
-//     });
-// };
-
-
-
-// const changeTabsContent = function(content, tabBtn, parent) {
-//     parent.addEventListener('click', (event) => {
-        
-//         if (event.target.matches('.tabheader__item')) {
-//             tabBtn.forEach((tab) => {
-//                 if(tab.classList.contains('tabheader__item_active')) {
-//                     tab.classList.remove('tabheader__item_active');
-//                 }
-//             });
-//             event.target.classList.add('tabheader__item_active');
-//         }
-//         hideTabsContent(tabsContent, tabs);
-//     });
-// };
-
+changeTabsContent(tabs, tabsParent);
 
